@@ -1,0 +1,914 @@
+@keyframes neon-breathing {
+    0% {
+        box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+        border-color: rgba(34, 197, 94, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(34, 197, 94, 0.7);
+        border-color: rgba(34, 197, 94, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+        border-color: rgba(34, 197, 94, 0.4);
+    }
+}
+/* 1. RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #09090b; /* Void Black */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. FLOATING BUBBLE HEADER */
+header {
+    /* ... your other code ... */
+    animation: neon-breathing 4s infinite ease-in-out;
+    width: 92%; 
+    max-width: 1100px;
+    margin: 20px auto; 
+    border-radius: 50px; 
+    border: 1px solid #22c55e; /* Neon Green */
+    position: sticky;
+    top: 20px; 
+    z-index: 1000;
+    background-color: rgba(9, 9, 11, 0.85); 
+    backdrop-filter: blur(12px); 
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+}
+/* --- ACTIVE PAGE HIGHLIGHT --- */
+.nav-menu a.active {
+    color: #22c55e !important; /* Pure brand green */
+    border-bottom: none !important; /* Removes the underline */
+    text-shadow: 0 0 12px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.2); /* Neon glow effect */
+    font-weight: 700; /* Makes the text pop slightly */
+}
+.logo {
+    color: #22c55e;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.logo span { color: #ffffff; }
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu a {
+    color: #a1a1aa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover { color: #22c55e; }
+
+.terminal-btn {
+    background-color: #22c55e;
+    color: #000;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* 3. HERO SECTION */
+.hero {
+    width: 85%;
+    margin: -80px auto 0 auto;
+    padding: 200px 0 100px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hero p {
+    color: #a1a1aa;
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin-bottom: 40px;
+}
+
+.hero-btns {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.btn-primary {
+    background-color: #22c55e;
+    color: #000;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.view-services-link {
+    color: #22c55e;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+}
+
+.view-services-link:hover { border-bottom: 1px solid #22c55e; }
+
+/* 4. SERVICE PILLARS */
+.section-container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.section-label {
+    color: #22c55e;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+}
+
+.pillar-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.pillar-box {
+    flex: 1;
+    background-color: #18181b; /* Armor Grey */
+    padding: 40px;
+    border: 1px solid #27272a;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.pillar-box:hover {
+    border-color: #22c55e;
+    transform: translateY(-10px);
+}
+
+.pillar-box h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.pillar-box p {
+    color: #a1a1aa;
+    font-size: 0.95rem;
+}
+
+.pillar-link {
+    color: #22c55e;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+/* 5. FOOTER */
+/* --- THE ZIGZAG SCAN ANIMATION --- */
+@keyframes zigzag-pulse {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* --- FOOTER CONTAINER & EKG LIFELINE --- */
+footer {
+    position: relative;
+    background: #09090b;
+    padding: 80px 0 40px;
+    margin-top: 100px;
+    border-top: 1px solid rgba(34, 197, 94, 0.2); 
+}
+
+/* The EKG Pulse Animation */
+@keyframes ekg-pulse {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 45%, 
+        #22c55e 48%, 
+        #ffffff 50%, 
+        #22c55e 52%, 
+        transparent 55%);
+    background-size: 200% 100%;
+    animation: ekg-pulse 5s linear infinite;
+    filter: drop-shadow(0 0 8px #22c55e);
+    pointer-events: none;
+}
+
+/* --- FOOTER CONTENT LAYOUT --- */
+.footer-content {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Keeps terminal and text aligned at top */
+    gap: 40px;
+}
+
+/* --- TERMINAL TYPING EFFECT --- */
+.footer-terminal {
+    background: #0d0d0f;
+    border: 1px solid #27272a;
+    border-radius: 8px;
+    flex: 1;
+    max-width: 450px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.terminal-header {
+    background: #18181b;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid #27272a;
+}
+
+.dot { height: 8px; width: 8px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-title {
+    color: #52525b;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    margin-left: 10px;
+}
+
+.terminal-body {
+    padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.prompt { color: #22c55e; font-weight: bold; }
+
+.typing-text {
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #22c55e;
+    width: 0;
+    animation: 
+        typing 3.5s steps(35, end) forwards,
+        blink 0.75s step-end infinite;
+}
+
+/* --- FOOTER BRANDING & TERMINAL TEXT --- */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.terminal-slogan {
+    font-family: 'JetBrains Mono', monospace; /* Professional tech font */
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.prompt {
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.typing-text {
+    color: #22c55e; /* Your brand green */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #22c55e; /* The blinking cursor */
+    width: 0;
+    animation: 
+        typing 3.5s steps(35, end) forwards,
+        blink 0.75s step-end infinite;
+}
+/* --- FOOTER MAIN CONTAINER --- */
+footer {
+    position: relative;
+    background: #09090b;
+    padding: 60px 0 30px; /* Tighter padding */
+    margin-top: 100px;
+    border-top: 1px solid rgba(34, 197, 94, 0.2); 
+}
+
+/* --- THE EKG LIFELINE (ZIGZAG) --- */
+footer::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 45%, #22c55e 48%, #ffffff 50%, #22c55e 52%, transparent 55%);
+    background-size: 200% 100%;
+    animation: ekg-pulse 5s linear infinite;
+    filter: drop-shadow(0 0 8px #22c55e);
+}
+
+/* --- GRID ARRANGEMENT --- */
+.footer-content {
+    width: 85%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Gives brand more space */
+    gap: 50px;
+    align-items: start;
+}
+
+/* --- BRAND & SLOGAN ALIGNMENT --- */
+.brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Keeps slogan tight under brand */
+}
+
+.terminal-slogan {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.typing-text {
+    color: #22c55e;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #22c55e;
+    width: 0;
+    animation: typing 3.5s steps(35, end) forwards, blink 0.75s step-end infinite;
+}
+
+/* --- COLUMN STYLES --- */
+.footer-col h4 {
+    color: #ffffff; /* White headers for contrast */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    text-transform: none; /* Matches your screenshot style */
+}
+
+.footer-col p, .footer-col a {
+    color: #a1a1aa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: block;
+    transition: 0.3s;
+}
+
+.footer-col a:hover {
+    color: #22c55e;
+    padding-left: 5px;
+}
+
+/* --- FOOTER BOTTOM --- */
+.footer-bottom {
+    text-align: left; /* Aligned left as per your request */
+    width: 85%;
+    margin: 40px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #18181b;
+    color: #52525b;
+    font-size: 0.8rem;
+}
+
+/* ANIMATIONS */
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink { from, to { border-color: transparent; } 50% { border-color: #22c55e; } }
+@keyframes ekg-pulse { 0% { background-position: -100% 0; } 100% { background-position: 100% 0; } }
+.story-grid {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.story-content {
+    flex: 2;
+}
+
+.story-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.story-content p {
+    color: #a1a1aa;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.story-stats {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.stat-item {
+    background: #18181b;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 4px solid #22c55e;
+    text-align: center;
+}
+
+.stat-item .neon-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    display: block;
+    color: #22c55e;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+.stat-item p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-top: 10px;
+}
+.cta-wrapper {
+    float: right;
+    text-align: right;
+}
+
+.btn-hint {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #22c55e;
+    text-transform: uppercase;
+    margin-top: 5px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+.terminal-btn {
+    background-color: #22c55e;
+    color: #000;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid #22c55e;
+}
+
+.terminal-btn .divider {
+    opacity: 0.3;
+    font-weight: 300;
+}
+
+.terminal-btn .purpose {
+    font-size: 11px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.terminal-btn:hover {
+    background-color: transparent;
+    color: #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+}
+/* --- DROPDOWN NAVIGATION --- */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #18181b; /* Armor Grey */
+    min-width: 240px;
+    border: 1px solid #22c55e; /* Neon Green */
+    border-radius: 12px;
+    z-index: 1001;
+    top: 100%; /* Sits exactly below the header */
+    left: 0;
+    margin-top: 15px; /* Visual gap for the bubble look */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+}
+
+/* THE INVISIBLE BRIDGE: 
+   This fills the gap so the menu doesn't disappear when moving the mouse down */
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -20px; /* Reaches up to touch the nav bar */
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+}
+
+/* Show on Hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+    color: #a1a1aa;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(34, 197, 94, 0.1); /* Subtle Neon glow */
+    color: #22c55e;
+    padding-left: 25px; /* Slight slide effect on hover */
+}
+
+.arrow {
+    font-size: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+    opacity: 0.6;
+}
+
+
+/* --- ABOUT PAGE SPECIAL STYLES --- */
+.section-divider {
+    border: 0;
+    border-top: 1px solid #18181b;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.dojo-highlight-section {
+    background: rgba(34, 197, 94, 0.03); /* Subtle brand tint */
+    border-radius: 20px;
+    padding: 60px;
+    margin-top: 40px;
+    border: 1px solid rgba(34, 197, 94, 0.1);
+}
+
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.about-hero-text {
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+/* --- GLOBAL UTILITIES --- */
+html {
+    scroll-behavior: smooth; /* Makes the jump to #theforge smooth */
+}
+
+section[id] {
+    scroll-margin-top: 120px; /* Prevents the header from covering section titles */
+}
+
+/* --- ABOUT PAGE LAYOUTS --- */
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 85%;
+    margin: 60px auto;
+    padding: 40px 0;
+}
+
+.section-label {
+    color: #22c55e;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* --- PILLAR GRID (Used on Services and Dojo) --- */
+.pillar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pillar-box {
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(34, 197, 94, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.pillar-box:hover {
+    border-color: #22c55e;
+    transform: translateY(-5px);
+}
+
+/* --- PHONE ANIMATION STYLING --- */
+.phone-animation-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 60px 0;
+}
+
+.smartphone {
+    width: 170px;
+    height: 340px;
+    background: #000;
+    border: 3px solid rgba(34, 197, 94, 0.3);
+    border-radius: 35px;
+    position: relative;
+    padding: 12px;
+    transition: 0.4s ease;
+}
+
+.smartphone:hover {
+    border-color: #22c55e;
+    transform: translateY(-10px);
+}
+
+.inner-screen {
+    width: 100%;
+    height: 100%;
+    background: #0a0a0b;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: #22c55e;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.phone-label {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #22c55e;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.android { border-radius: 15px; } /* Slightly sharper look for Android */
+/* Smoothly scrolls the page instead of an instant jump */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Offsets the landing spot so the header doesn't hide your title */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+/* --- TACTICAL SERVICES GRID --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.tactical-card {
+    position: relative;
+    background: rgba(15, 15, 15, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2px; /* For the gradient border effect */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.tactical-card:hover {
+    transform: translateY(-10px);
+    border-color: #22c55e;
+    box-shadow: 0 15px 35px rgba(34, 197, 94, 0.15);
+}
+
+.card-content {
+    background: #09090b;
+    border-radius: 18px;
+    padding: 40px 30px;
+    height: 100%;
+}
+
+.card-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+    padding: 4px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.tactical-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.tactical-card p {
+    font-size: 0.95rem;
+    color: #a1a1aa;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* --- INTERACTIVE BUTTONS --- */
+.card-action {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.card-action span {
+    transition: margin-left 0.3s;
+}
+
+.card-action:hover {
+    color: #22c55e;
+}
+
+.card-action:hover span {
+    margin-left: 10px;
+}
+
+/* Dojo Specific Highlight */
+.tactical-card.highlight {
+    border: 1px solid rgba(34, 197, 94, 0.4);
+}
+/* --- LARGE TERMINAL WINDOW --- */
+.terminal-window-large {
+    background: #050505;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 12px;
+    max-width: 1000px; /* Increased width */
+    margin: 60px auto;
+    font-family: 'JetBrains Mono', monospace;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.terminal-form {
+    padding: 60px; /* More breathing room */
+}
+
+/* THE GRID SYSTEM */
+.input-line {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Fixed label width, flexible input */
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.input-line-wide {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.input-line-wide label {
+    margin-bottom: 20px;
+}
+
+/* TYPOGRAPHY */
+.input-line label, .input-line-wide label {
+    color: #22c55e;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* INPUTS */
+.input-line input, .terminal-select, textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    padding: 10px 0;
+    transition: 0.3s;
+}
+
+textarea {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #22c55e;
+    background: rgba(34, 197, 94, 0.02);
+}
+
+/* CHECKBOX GRID */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.check-item {
+    color: #22c55e;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+/* BUTTON */
+.terminal-submit-btn-large {
+    background: #22c55e;
+    color: #000;
+    border: none;
+    padding: 20px 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.terminal-submit-btn-large:hover {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
+    transform: translateY(-3px);
+}

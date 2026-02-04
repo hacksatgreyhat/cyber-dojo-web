@@ -911,80 +911,63 @@ input:focus, textarea:focus {
 .terminal-submit-btn-large:hover {
     box-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
     transform: translateY(-3px);
-}
-/* --- MOBILE RESPONSIVENESS (Screens smaller than 768px) --- */
+}/* --- MOBILE REPAIRS (Screens < 768px) --- */
 @media (max-width: 768px) {
     
-    /* Make containers fit the screen width */
-    .section-container {
-        padding: 40px 20px;
-        width: 100%;
+    /* 1. Fix the overlapping Header */
+    header {
+        flex-direction: column; /* Stack Logo, Nav, and Button vertically */
+        height: auto;
+        padding: 20px 10px;
+        gap: 15px;
     }
 
-    /* Stack the Service Cards and Pillars vertically */
-    .services-grid, .pillar-grid, .checkbox-grid {
-        grid-template-columns: 1fr !important; 
-        gap: 20px;
-    }
-
-    /* Adjust the Terminal Window for small screens */
-    .terminal-window-large {
-        margin: 20px 10px;
-    }
-
-    /* Fix the Terminal Form Labels so they don't squash the inputs */
-    .input-line {
-        flex-direction: column;
-        align-items: flex-start;
+    .nav-menu {
+        flex-wrap: wrap; /* Let links wrap to the next line instead of overlapping */
+        justify-content: center;
         gap: 10px;
-        display: flex; /* Switch from grid to flex for stacking */
     }
 
-    .input-line label {
-        min-width: unset;
+    /* 2. Fix the Hero Section (Text Overlap) */
+    .hero-section h1 {
+        font-size: 2.5rem; /* Shrink the massive text so it fits */
+        line-height: 1.1;
     }
 
-    /* Adjust the Phone Animation sizing so they don't overflow */
-    .phone-animation-container {
+    /* 3. Stack the Hero Buttons */
+    .hero-buttons {
         flex-direction: column;
         align-items: center;
-        gap: 40px;
-    }
-}
-@media (max-width: 768px) {
-    .nav-menu {
-        flex-direction: column;
-        text-align: center;
         gap: 15px;
-        padding: 20px 0;
     }
-    
-    header {
-        flex-direction: column;
-        height: auto;
+
+    /* 4. The Forge & Dojo Cards (Stacking) */
+    .services-grid {
+        display: flex;
+        flex-direction: column; /* Force cards to stack on top of each other */
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .tactical-card {
+        width: 100%; /* Ensure cards take full phone width */
+    }
+
+    /* 5. Terminal Window Fix */
+    .terminal-window-large {
+        margin: 20px 10px;
+        width: calc(100% - 20px);
+    }
+
+    .terminal-form {
         padding: 20px;
     }
 
-    .cta-wrapper {
-        margin-top: 15px;
-    }
-}
-@media (max-width: 768px) {
-    /* Hide the long menu and stack items */
-    .nav-menu {
-        display: none; /* We can add a toggle later */
-        flex-direction: column;
-        background: rgba(10, 10, 11, 0.95);
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        padding: 20px;
-        border-bottom: 1px solid #22c55e;
-    }
-    
-    /* Reveal it when we need it */
-    .nav-menu.active {
+    /* Stack labels above inputs in the form */
+    .input-line {
         display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
 }

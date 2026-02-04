@@ -969,3 +969,22 @@ input:focus, textarea:focus {
         margin-top: 15px;
     }
 }
+@media (max-width: 768px) {
+    /* Hide the long menu and stack items */
+    .nav-menu {
+        display: none; /* We can add a toggle later */
+        flex-direction: column;
+        background: rgba(10, 10, 11, 0.95);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        border-bottom: 1px solid #22c55e;
+    }
+    
+    /* Reveal it when we need it */
+    .nav-menu.active {
+        display: flex;
+    }
+}

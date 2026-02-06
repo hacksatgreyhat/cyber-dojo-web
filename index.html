@@ -140,5 +140,19 @@
         &copy; 2026 CYBER DOJO LTD | All Rights Reserved.
     </div>
 </footer>
+    <div class="theme-toggle" id="theme-btn" title="Switch Theme">
+        <span class="theme-icon">🌙</span>
+    </div>
+
+    <script>
+        // Keeping your previous JS logic here
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = themeBtn.querySelector('.theme-icon');
+
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            themeIcon.innerText = document.body.classList.contains('light-theme') ? '☀️' : '🌙';
+        });
+    </script>
 </body>
 </html>
